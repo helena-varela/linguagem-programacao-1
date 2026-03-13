@@ -29,17 +29,41 @@ struct Pedido{
 
 struct Impressora{
 
-    void imprimirTodosItens(Pedido pedido){
+    void imprimirTodosItens(Pedido pedido, string direcao = "retrato"){
+        string resposta2;
+        cout << "Deseja imprimir o pedido em modo paisagem? (s/n)" << endl;
+        cin >> resposta2;
+
+        if (resposta2 == "s")
+        {
+            direcao = "paisagem";
+            cout << "Direção: " << direcao << endl;
+        } else {
+            cout << "Direção: " << direcao << endl;
+        }
+
         cout << "Itens do pedido:" << endl;
         for (int i = 0; i < int(pedido.listaPedido.size()); ++i) {
-            cout << "Nome: " << pedido.listaPedido[i].nome << ", Quantidade: " << pedido.listaPedido[i].quantidade << ", Valor Unitario: " << pedido.listaPedido[i].valorUnitario << endl;
+            cout << "Nome: " << pedido.listaPedido[i].nome << ", Quantidade: " << pedido.listaPedido[i].quantidade << ", Valor Unitario: " << pedido.listaPedido[i].valorUnitario << endl; 
         }
     }
 
-    void imprimirUmItem(Pedido pedido){
+    void imprimirUmItem(Pedido pedido, string direcao = "retrato"){
         string nomeItem;
         cout << "Digite o nome do item que deseja imprimir: " << endl;
         cin >> nomeItem;
+
+        string resposta2;
+        cout << "Deseja imprimir o pedido em modo paisagem? (s/n)" << endl;
+        cin >> resposta2;
+
+        if (resposta2 == "s")
+        {
+            direcao = "paisagem";
+            cout << "Direção: " << direcao << endl;
+        } else {
+            cout << "Direção: " << direcao << endl;
+        }
 
         for (int i = 0; i < int(pedido.listaPedido.size()); ++i) {
             if (pedido.listaPedido[i].nome == nomeItem) {
@@ -69,8 +93,6 @@ int main(){
         cout << "Digite a quantidade do item: " << endl;
         cin >> itens.quantidade;
 
-        
-        
         cout << "Digite o valor unitario do item: " << endl;
         cin >> itens.valorUnitario;
 
@@ -85,10 +107,12 @@ int main(){
 
     string resposta;
     cout << "Você deseja imprimir todos os itens do pedido (1) ou deseja imprimir um item específico (2)? " << endl;
-    cin >> resposta;
+    cin >> resposta;    
+
+    
     if (resposta == "1"){
         impressora.imprimirTodosItens(pedido);
     } else if (resposta == "2"){
         impressora.imprimirUmItem(pedido);
     }
-}
+}       
