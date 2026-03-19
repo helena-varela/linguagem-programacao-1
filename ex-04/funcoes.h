@@ -10,5 +10,4 @@ void exibirRelatorioFuncionario(const std::vector<Funcionario>& funcionarios);
 void cadastrarVendas(std::vector<Venda>& vendas);
 void cadastrarFuncionarios(std::vector<Funcionario>& funcionarios);
 
-
 #endif

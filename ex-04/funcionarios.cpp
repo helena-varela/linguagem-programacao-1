@@ -1,12 +1,8 @@
 #include <iostream>
 #include <vector>
-#include "structs.h"
-using namespace std;
+#include "funcoes.h"
 
-int main(){
-    
-    return 0;
-}
+using namespace std;
 
 void cadastrarFuncionarios(vector<Funcionario>& funcionarios){
     cout << "Cadastrar funcionários" << endl;
@@ -14,10 +10,9 @@ void cadastrarFuncionarios(vector<Funcionario>& funcionarios){
     int quantidadeFuncionarios;
     cin >> quantidadeFuncionarios;
 
-    Funcionario funcionario;
-
     for (int i = 0; i < quantidadeFuncionarios; i++)
     {
+        Funcionario funcionario;
         cout << "Digite o nome do funcionário: " << endl;
         cin >> funcionario.nomeFuncionario;
         cout << "Digite o cargo do funcionário: " << endl;
@@ -27,9 +22,9 @@ void cadastrarFuncionarios(vector<Funcionario>& funcionarios){
     }
 }
 
-void exibirRelatorioFuncionario(vector<Funcionario> funcionarios){
+void exibirRelatorioFuncionario(const vector<Funcionario>& funcionarios){
     for (int i = 0; i < int(funcionarios.size()); i++)
     {
-        cout << "Nome do Funcionário: " << funcionarios[i].nomeFuncionario << ", Cargo: " << funcionarios[i].cargo << endl;
+        cout << "Nome: " << funcionarios[i].nomeFuncionario << " Cargo: " << funcionarios[i].cargo << endl;
     }
 }

@@ -1,8 +1,8 @@
 #include <iostream>
 #include <vector>
-#include "structs.h"
-using namespace std;
+#include "funcoes.h"
 
+using namespace std;
 
 void cadastrarVendas(vector<Venda>& vendas){
     cout << "Cadastrar vendas" << endl;
@@ -10,10 +10,9 @@ void cadastrarVendas(vector<Venda>& vendas){
     int quantidadeVendas;
     cin >> quantidadeVendas;
 
-    Venda venda;
-
     for (int i = 0; i < quantidadeVendas; i++)
     {
+        Venda venda;
         cout << "Digite o nome do produto: " << endl;
         cin >> venda.nomeProduto;
         cout << "Digite a quantidade vendida: " << endl;
@@ -26,13 +25,13 @@ void cadastrarVendas(vector<Venda>& vendas){
 }
 
 void exibirRelatorioVenda(const std::vector<Venda>& vendas){
+    if(vendas.empty()) {
+        cout << "Nenhuma venda cadastrada." << endl;
+        return;
+    }
+
     for (int i = 0; i < int(vendas.size()); i++)
     {
         cout << "Produto: " << vendas[i].nomeProduto << ", Quantidade Vendida: " << vendas[i].quantidadeVendida << ", Valor Unitário: " << vendas[i].valorUnitario << endl;
     }
-}
-
-int main(){
-
-    return 0;
 }
