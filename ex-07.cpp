@@ -10,12 +10,11 @@ struct Corredores{
     float tempoCorridaSegundos;
 
     bool operator<(const Corredores& outro) const {
-        if (nome != outro.nome) {
-            return nome < outro.nome; 
-        }
-        return id < outro.id;
+    if (tempoCorridaSegundos != outro.tempoCorridaSegundos) {
+        return tempoCorridaSegundos < outro.tempoCorridaSegundos;
     }
-
+    return id < outro.id;
+}
 };
 
 void relatorio(const set<Corredores>& corredores) {
